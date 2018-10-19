@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'cpp-slave' }
 
     stages {
         stage('Checkout Repo') {
@@ -16,6 +16,14 @@ pipeline {
             }
         }
         stage('Clean && Build') {
+            steps {
+                	sh 'cd Debug'
+                    sh 'make clean'
+                    sh 'ls -altr'
+                    sh 'make all'
+            }
+        }
+        stage('Execute') {
             steps {
                 
                     sh 'make clean'
