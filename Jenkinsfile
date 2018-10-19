@@ -20,9 +20,14 @@ pipeline {
                 
                     sh 'make clean'
                     sh 'ls -altr'
-                    sh 'make build'
+                    sh 'make all'
                 
             }
+        }
+    }
+    post {
+        always{
+        	xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: false, pattern: 'XML_Report.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
         }
     }
 }
