@@ -13,23 +13,24 @@ pipeline {
         stage('Checkout GCC Image') {
             steps {
               sh "docker pull gcc:5"
-              sh 'docker run --rm -i -v "$PWD":/app -w /app --name GCC gcc:5'
               sh 'pwd'
             }
         }
         
         stage('Clean && Build') {
-            docker.image('gcc:5').withRun('-v "$PWD":/app -w /app') { c ->
+            agent {
+                docker { 
+                    image 'gcc:5' 
+                    args '-v "$PWD":/app -w /app'
+                }
+            }
+            steps {
                 sh  "chmod a+x build.sh" 
                 sh  "ls -altr" 
                 sh  "pwd" 
                 sh  "./build.sh" 
             }
-            steps {
-                sh  "docker ps -a" 
-               
-                sh  'docker stop GCC'
-            }
+            
         }
         
         stage('Execute') {
