@@ -19,13 +19,13 @@ pipeline {
         }
         
         stage('Clean && Build') {
+            docker.image('gcc:5').withRun('-v "$PWD":/app -w /app') { c ->
+                sh  "chmod a+x build.sh" 
+                sh  "ls -altr" 
+                sh  "pwd" 
+                sh  "./build.sh" 
+            }
             steps {
-                docker.image('gcc:5').withRun('-v "$PWD":/app -w /app') { c ->
-                    sh  "chmod a+x build.sh" 
-                    sh  "ls -altr" 
-                    sh  "pwd" 
-                    sh  "./build.sh" 
-                }
                 sh  "docker ps -a" 
                
                 sh  'docker stop GCC'
