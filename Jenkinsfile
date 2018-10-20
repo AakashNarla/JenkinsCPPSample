@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh  "chmod a+x build.sh" 
                 sh  "ls -altr" 
-                sh  'docker run --rm -u root -v "$PWD":/app -w /app gcc:5 /bin/bash ./build.sh'
+                sh  'docker run --rm -u root -v "$PWD":/app -w /app gcc:5 bash /app/build.sh'
             }
         }
         
