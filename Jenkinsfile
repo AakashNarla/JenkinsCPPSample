@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'jenkins-slave' }
+    agent { label 'master' }
     environment {
         CPP_CMD ='docker run --rm -v "$PWD":/app -w /app registrynxbnsf.azurecr.io/gcc:5 /bin/bash '
     }
