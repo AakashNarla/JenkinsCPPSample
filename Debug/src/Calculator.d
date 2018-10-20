@@ -1,3 +1,3 @@
-src/Calculator.d: ../src/Calculator.cpp /app/include/Calculator.h
+src/Calculator.d: ../src/Calculator.cpp ../include/Calculator.h
 
-/app/include/Calculator.h:
+../include/Calculator.h:

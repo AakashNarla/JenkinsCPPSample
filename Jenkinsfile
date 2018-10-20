@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'master' }
     environment {
-        CPP_CMD ='docker run --rm -v "$PWD":/app -w /app gcc:5 /bin/bash '
+        CPP_CMD ='docker run --rm -v "$PWD":/app -w /app gcc:5 /bin/bash'
     }
 
     stages {
