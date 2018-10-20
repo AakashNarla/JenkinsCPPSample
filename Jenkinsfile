@@ -21,6 +21,7 @@ pipeline {
             steps {
                 sh  "chmod a+x build.sh" 
                 sh  "ls -altr" 
+                sh  "pwd" 
                 sh  "./build.sh" 
                 sh  'docker stop GCC'
             }
