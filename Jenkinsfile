@@ -29,6 +29,9 @@ pipeline {
                 sh  "ls -altr" 
                 sh  "pwd" 
                 sh  "./build.sh" 
+                sh  "pwd" 
+                sh  "ls -altr"
+                sh './Debug/google_test_sample --gtest_output="xml:XML_Report.xml"'
             }
             
         }
@@ -39,7 +42,7 @@ pipeline {
                 sh  "cd Debug/" 
                 sh  "pwd && ls -altr"
                 sh  "cd .. && pwd"  
-                sh './Debug/google_test_sample --gtest_output="xml:XML_Report.xml"'
+                
             }
         }
     }
