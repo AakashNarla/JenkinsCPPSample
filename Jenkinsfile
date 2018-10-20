@@ -21,7 +21,7 @@ pipeline {
             agent {
                 docker { 
                     image 'gcc:5' 
-                    args '-v "$PWD":/app -w /app'
+                    args '-v "$(PWD)":/app -w /app'
                 }
             }
             steps {
