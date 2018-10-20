@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout GCC Image') {
             steps {
               sh "docker pull gcc:5"
-              sh 'docker run --rm -it -v "$PWD":/app -w /app --name GCC gcc:5'
+              sh 'docker run --rm -i -v "$PWD":/app -w /app --name GCC gcc:5'
             }
         }
         
@@ -23,6 +23,7 @@ pipeline {
                 sh  "ls -altr" 
                 sh  "pwd" 
                 sh  "./build.sh" 
+                sh  "exit" 
                 sh  'docker stop GCC'
             }
         }
