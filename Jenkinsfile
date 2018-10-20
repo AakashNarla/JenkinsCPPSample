@@ -18,9 +18,9 @@ pipeline {
         
         stage('Clean && Build') {
             steps {
-                sh  "chmod 777 build.sh" 
+                sh  "chmod 777 build.sh && chmod +x build.sh" 
                 sh  "ls -altr" 
-                sh  'docker run --rm -u root -v "$PWD":/app -w /app gcc:5 /bin/bash -c "build.sh"'               
+                sh  'docker run --rm -u root -v "$PWD":/app -w /app gcc:5 /bin/bash -c build.sh'               
             }
         }
         
