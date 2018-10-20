@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'master' }
     environment {
-        CPP_CMD ='docker run --rm -v "$PWD":/app -w /app gcc:5 /bin/bash'
+        CPP_CMD ='docker run --rm -u root -v "$PWD":/app -w /app gcc:5 /bin/bash'
     }
 
     stages {
@@ -18,7 +18,7 @@ pipeline {
         
         stage('Clean && Build') {
             steps {
-                sh  "chmod 755 build.sh" 
+                sh  "chmod 777 build.sh" 
                 sh  "ls -altr" 
                 sh  "${CPP_CMD} build.sh"               
             }
