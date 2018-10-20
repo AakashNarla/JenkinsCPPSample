@@ -44,7 +44,7 @@ all: google_test_sample
 google_test_sample: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"../libraries"  $(OBJS) $(USER_OBJS) $(LIBS) -fPIC -o "google_test_sample"
+	g++ -L"../libraries" -o "google_test_sample" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
