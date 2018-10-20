@@ -18,6 +18,8 @@ pipeline {
         
         stage('Clean && Build') {
             steps {
+                sh  "chmod 755 build.sh" 
+                sh  "ls -altr" 
                 sh  "${CPP_CMD} build.sh"               
             }
         }
