@@ -1,5 +1,8 @@
 pipeline {
-    agent { label 'cpp-slave' }
+    agent { label 'jenkins-slave' }
+    environment {
+        CPP_CMD ='docker run --rm -v "$PWD":/app -w /app registrynxbnsf.azurecr.io/gcc:5 /bin/bash '
+    }
 
     stages {
         stage('Checkout Repo') {
@@ -8,28 +11,15 @@ pipeline {
             }
         }
         
-        stage('Check for GCC Version') {
-            steps {
-            
-                    sh 'g++ --version'
-                
-            }
-        }
         stage('Clean && Build') {
             steps {
-                	sh 'cd Debug'
-                    sh 'make clean'
-                    sh 'ls -altr'
-                    sh 'make all'
+                sh  "${CPP_CMD} build.sh"               
             }
         }
+        
         stage('Execute') {
             steps {
-                
-                    sh 'make clean'
-                    sh 'ls -altr'
-                    sh 'make all'
-                
+                sh './Debug/google_test_sample --gtest_output="xml:XML_Report.xml"'
             }
         }
     }
