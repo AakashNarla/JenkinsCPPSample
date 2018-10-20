@@ -10,6 +10,11 @@ pipeline {
               checkout scm
             }
         }
+        stage('Checkout GCC Image') {
+            steps {
+              sh "docker pull registrynxbnsf.azurecr.io/gcc:latest"
+            }
+        }
         
         stage('Clean && Build') {
             steps {
