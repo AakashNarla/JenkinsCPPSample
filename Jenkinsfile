@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Checkout GCC Image') {
             steps {
-              sh "docker pull registrynxbnsf.azurecr.io/gcc:latest"
+              sh "docker pull gcc:5"
             }
         }
         
