@@ -14,11 +14,13 @@ pipeline {
             steps {
               sh "docker pull gcc:5"
               sh 'docker run --rm -i -v "$PWD":/app -w /app --name GCC gcc:5'
+              sh 'pwd'
             }
         }
         
         stage('Clean && Build') {
             steps {
+                sh  "docker ps -a" 
                 sh  "chmod a+x build.sh" 
                 sh  "ls -altr" 
                 sh  "pwd" 
