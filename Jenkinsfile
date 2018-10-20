@@ -13,6 +13,7 @@ pipeline {
         stage('Checkout GCC Image') {
             steps {
               sh "docker pull gcc:5"
+              sh "docker run --rm -u root -v "$PWD":/app -w /app --name GCC gcc:5"
             }
         }
         
@@ -20,7 +21,8 @@ pipeline {
             steps {
                 sh  "chmod a+x build.sh" 
                 sh  "ls -altr" 
-                sh  'docker run --rm -u root -v "$PWD":/app -w /app gcc:5 bash build.sh'
+                sh  "./build.sh" 
+                sh  'docker stop GCC'
             }
         }
         
