@@ -36,7 +36,7 @@ pipeline {
         stage('Execute') {
             steps {
                 sh  "pwd" 
-                sh  "cd Debug" 
+                sh  "cd Debug/" 
                 sh  "pwd && ls -altr"
                 sh  "cd .. && pwd"  
                 sh './Debug/google_test_sample --gtest_output="xml:XML_Report.xml"'
