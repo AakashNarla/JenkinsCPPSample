@@ -41,7 +41,7 @@ protected:
 // Basic data init test cases
 // ========================================================================================
 
-TEST_F(SampleTestSuite, basicAdd) {
+/*TEST_F(SampleTestSuite, basicAdd) {
 	// arrange
 
 	// act
@@ -49,7 +49,7 @@ TEST_F(SampleTestSuite, basicAdd) {
 
 	// assert
 	EXPECT_TRUE(result == 3);
-}
+}*/
 
 TEST_F(SampleTestSuite, basicSubtract) {
 	// arrange

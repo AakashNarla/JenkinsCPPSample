@@ -1,3 +1,4 @@
-src/Calculator.d: ../src/Calculator.cpp ../include/Calculator.h
+src/Calculator.d: ../src/Calculator.cpp \
+ /home/aakashnarla/git/JenkinsCPPSample/include/Calculator.h
 
-../include/Calculator.h:
+/home/aakashnarla/git/JenkinsCPPSample/include/Calculator.h:

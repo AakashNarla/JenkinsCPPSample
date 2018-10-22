@@ -20,10 +20,24 @@ CPP_DEPS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
+src/Calculator.o: ../src/Calculator.cpp
+	@echo 'Building file: $<'
+	@echo 'Invoking: GCC C++ Compiler'
+	g++ -std=c++0x -I"/home/aakashnarla/git/JenkinsCPPSample/include" -O0 -g3 -Wall -c -fmessage-length=0 -fprofile-arcs -ftest-coverage -MMD -MP -MF"$(@:%.o=%.d)" -MT"src/Calculator.d" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+src/gtest_driver.o: ../src/gtest_driver.cpp
+	@echo 'Building file: $<'
+	@echo 'Invoking: GCC C++ Compiler'
+	g++ -std=c++0x -I"../include" -O0 -g3 -Wall -c -fmessage-length=0 -fprofile-arcs -ftest-coverage -MMD -MP -MF"$(@:%.o=%.d)" -MT"src/gtest_driver.d" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I"../include" -O0 -g3 -Wall -c -fmessage-length=0 -std=c++0x -MMD -MP -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -std=c++0x -I"/home/aakashnarla/git/JenkinsCPPSample/include" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
