@@ -1,7 +1,7 @@
 pipeline {
     agent {
        docker { 
-            image 'gcc:5' 
+            image 'aakashn/gcovr:5' 
             args '-v ${PWD}:/app -w /app'
         }
     }
