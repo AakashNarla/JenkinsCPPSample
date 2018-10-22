@@ -23,6 +23,7 @@ pipeline {
                 sh  "pwd" 
                 sh './Debug/JenkinsCPPSample --gtest_output="xml:XML_Report.xml"'
                 sh  "cd Debug/src/" 
+                sh  "pwd" 
                 sh  "gcovr -r .  --xml-pretty -o coverage.xml" 
             }
         }
