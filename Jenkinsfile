@@ -21,7 +21,7 @@ pipeline {
         stage('Execute') {
             steps {
                 sh  "pwd" 
-                sh './Debug/google_test_sample --gtest_output="xml:XML_Report.xml"'
+                sh './Debug/JenkinsCPPSample --gtest_output="xml:XML_Report.xml"'
             }
         }
     }
