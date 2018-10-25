@@ -32,7 +32,7 @@ pipeline {
     post {
         always{
         	xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: false, pattern: 'XML_Report.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
-        	cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: '**/coverage.xml', conditionalCoverageTargets: '70, 0, 0', failUnhealthy: false, failUnstable: false, lineCoverageTargets: '80, 0, 0', maxNumberOfBuilds: 0, methodCoverageTargets: '80, 0, 0', onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false
+        	cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: '**/coverage.xml', conditionalCoverageTargets: '90, 80, 0', failUnhealthy: false, failUnstable: false, lineCoverageTargets: '90, 80, 0', maxNumberOfBuilds: 0, methodCoverageTargets: '90, 80, 0', onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false
         }
     }
 }
